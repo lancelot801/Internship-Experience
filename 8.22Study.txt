@@ -1,0 +1,24 @@
+1.通过Mybatis Generator增加数据库字段
+
+ 通过MySql Workbench那个model文件增加字段  打开上方菜单栏 Database输入账号密码
+
+ generate的时候，config里面注释掉其他表，留下你要操作的表，然后删掉对应的mapper.xml  mapper.java不需要修改
+
+ generate用eclipse 项目右键->Run As->Maven Build…
+goals里面填mybatis-generator:generate
+以后都可以在run configuration里面找到这个，
+ 
+ 直接跑
+不需要跑java -jar xxx.jar configfile 这样的命令行了
+	
+ 如果出现异常: Cannot resolve classpath entry: mysql-connector-java-5.1.38.jar  修改generatorConfig.xml文件 将
+java-connection改为本地地址   classPathEntry 这个字段不要覆盖掉其他人的路径
+
+
+2.参数类型转换写在Conntroller中  不要写在serviceImpl中  
+
+3.修改数据库字段在MySql Workbean中进行 先点击菜单栏的DateBase 连接数据库 再选择需要修改的表 alert Table
+ 这样做数据映射关系也会改变 如果在Navicat中进行的话  数据库映射关系不变
+
+
+4.myBaits映射生成的xxxExample使用方法 参考:http://www.ithao123.cn/content-2407397.html

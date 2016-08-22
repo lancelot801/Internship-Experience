@@ -1,0 +1,31 @@
+1.
+在Eclipse下安装SVN
+方法一:
+打开Eclipse点击Help-->EclipseMarket-->输入svn--> 选择Subversive -SVN Team Provider 4.0.0 所有的东西一个个安装过来 因为svn不支持断点下载
+如果有一个地方卡住就要全部重装  装完后导入项目还需要 下载SVN Connector 进入 Windows -->Prefrence--->Team -->SVN选择SVN Connector下载一个connector
+
+方法二:
+Help-->Install New SoftWare--> add 输入 svn  http://subclipse.tigris.org/update_1.10.x
+
+2.Eclipse需要自己配置jdk，默认的JDK是1.4或1.6
+
+3.Tomcat配置需要点击Tomcat v8.0 Server at localhost两下 修改Server Locations 改成Use Tomcat installation 
+ Deploy path改为webapps  同时勾选Server Options中的 Publish module contexts to sparate XML files
+
+4.SVN提交前需要更新一下，防止将别人的覆盖掉，更新时写上Commit的内容
+
+5.有些SVN上面的项目下载到本地后,需要Replace一下，将项目Convert to Maven project 才能发布到Tomcat上
+
+6.Tomcat跑项目前，先测试 127.0.0.1:8080能不能跑
+
+7.卸载软件后，可以下载RegClean Pro彻底清除注册表
+
+8.MySql 和MySql WorkBeach 可以查看数据库的mwb文件
+
+9.软件尽量使用最新的稳定版本
+
+10.TeamViewer进行远程操控
+
+11.lifecycleException 和zipExecption错误  从SVN下载项目时，Maven包下载卡壳 导致部分jar包无法识别,
+   将C盘下的 .repertories全部删除  然后Maven updateProject 重新下载jar包
+
