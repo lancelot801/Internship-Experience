@@ -65,3 +65,68 @@
 		return jr;
 	}
 	
+
+
+3.自动排序   a1 b2 c3 d4 e5 f6   --> 将f6改为f2  --->a1 f2 b3 c4 d5 e6 
+
+	     1.删除一个sequence:  先将比该sequence大的记录全部-1再删除该记录,;
+
+2.增加一个sequence:  先将比该sequence大的记录全部+1，再增加该记录
+
+3.修改一个sequence:  先找到被修改的sequence所处的位置pos1,在于其他sequence比较 ，找到要替换的位置pos2
+		     只需修改[pos1,pos2]或者[pos2,pos1]区间的数据即可(区间根据sequence改大或者改小而定)
+			
+			定义一个int数组 来存放所有的sequence
+		     a.sequence改大  利用一个temp=修改后的sequence 在[pos1,pos2]的区间里  
+			
+			temp=int[pos1]; 
+			for(int i=pos1;i<pos2-1;i++)
+			{  
+			  int[i+1]=int[i];
+			}
+			int[pos2]=temp;
+		    b.sequence改小
+			temp=int[pos1];
+			for(int i=pos2;i<pos1-1;i++)
+			{
+			    int[i]=int[i+1];	
+			}
+			int[pos2]=temp;
+
+	public Course updateSeq(String courseId, Integer sequence) {
+		Date now = new Date();
+		Course cour = courseMapper.selectByPrimaryKey(courseId);
+		Course course = new Course(); // 用于比对 sequence是否已经存在;
+
+		cour.setUpdatedTime(now);
+
+		// 同步更新Sequence
+		Integer preSeq = cour.getSequence(); // 获取先前的sequence
+		cour.setSequence(sequence);
+		List<Course> courseList = this.findAllCourse();
+		// Sequence改小
+		if (preSeq > sequence) {
+			for (int i = 0; i < courseList.size(); i++) {
+				course = courseList.get(i);
+				Integer seq = course.getSequence();
+				if (sequence <= seq && seq < preSeq) { // 将改动前和改动后之间的sequence修改
+					seq = seq + 1;
+					course.setSequence(seq);
+					courseMapper.updateByPrimaryKey(course);
+				}
+			}
+		} else {
+			for (int i = 0; i < courseList.size(); i++) {
+				course = courseList.get(i);
+				Integer seq = course.getSequence();
+				if (sequence >= seq && seq > preSeq) {
+					seq = seq - 1;
+					course.setSequence(seq);
+					courseMapper.updateByPrimaryKey(course);
+				}
+			}
+		}
+		courseMapper.updateByPrimaryKey(cour);
+		return cour;
+	}
+			
