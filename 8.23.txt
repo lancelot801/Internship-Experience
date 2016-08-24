@@ -1,0 +1,67 @@
+实现了Controller下的图片/文件上传功能
+
+1.编写前台from表单   action配置服务链接
+  <form action="/ongea_server/api/v1/course/uploadImg" method="post" enctype="multipart/form-data">  
+    选择文件:<input type="file" class="file" name="profilePictrue">  
+    	<input type="text" name="courseId" value="06c1cc56279a4c8b9113e3de1975e1e2" style="visibility:hidden" >
+    <input type="submit" value="提交">   
+</form> 
+
+2.
+  配置spring-mvc.xml文件 添加 
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+                  <property name="maxUploadSize" value="10485760" />  
+ </bean>
+
+<!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
+<!--	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		&lt;!&ndash; 默认编码 &ndash;&gt;
+		<property name="defaultEncoding" value="utf-8" />
+		&lt;!&ndash; 文件大小最大值 &ndash;&gt;
+		<property name="maxUploadSize" value="10485760000" />
+		&lt;!&ndash; 内存中的最大值 &ndash;&gt;
+		<property name="maxInMemorySize" value="40960" />
+	</bean>-->
+3.
+	传递MultipartFile参数和HttpServletRequest参数   
+	
+	MultipartFile代表所要上传的文件   HttpServletRequest用于获取Tomcat下的项目路径 
+	保存文件到该项目路径 并创建一个/upload文件夹 该路径存到数据库中
+
+	利用Spring的transferTo的方法上传文件
+
+	@RequestMapping("/uploadImg")
+	public JsonResult uploadImg(@RequestParam String courseId,@RequestParam MultipartFile profilePictrue,HttpServletRequest req) {
+	
+		request=req;   //传递request
+		//获取要保存的路径
+		String filePath=request.getSession().getServletContext().getRealPath("/upload/courseImg");
+		File file=new File(filePath);
+		//如果文件夹不存在创建文件夹
+		if (!file.exists()) 
+		{
+			file.mkdirs();
+		}
+		//System.out.println(filePath);
+		try {
+			//存入文件
+			profilePictrue.transferTo(new File(filePath+"/"+profilePictrue.getOriginalFilename()));
+		} catch (IllegalStateException | IOException e) {
+		e.printStackTrace();
+		}
+		//存在数据库的路径
+		String realPath="/upload/courseImg"+"/"+profilePictrue.getOriginalFilename();
+		//System.out.println(realPath);
+		//更新数据库
+		
+		//String courseId="06c1cc56279a4c8b9113e3de1975e1e2";  测试课程编号
+		
+		JsonResult jr = new JsonResult();
+		Course cur = courseService.uploadImage(courseId, realPath);
+		jr.setResultCode(0);
+		jr.setResultData(cur);
+		
+		return jr;
+	}
+	
