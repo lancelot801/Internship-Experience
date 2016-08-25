@@ -20,6 +20,17 @@
   再scp war文件 @root/120.xx.xx.xx:/www
   之后重启服务器  重新 登录ssh 然后 输入 service tomcat restart
 
+root@120.26.204.82
+密码 GuanduFlyDev01
+
+html: /alidata/www/ongea
+img: /alidata/www/img
+war: /www
+
+部署：
+scp 本地文件 root@120.26.204.82:/xxx(服务器路径)
+html 部署完，nginx服务器重启：service nginx restart
+war 部署完，tomcat重启：service tomcat restart
 
 5.文件上传到阿里云服务器的路径要设置成可配置的  将ImgUrl的地址写在setting.properties文件中 然后利用propertyUtil和propertyContext来获取
 ImgUrl
