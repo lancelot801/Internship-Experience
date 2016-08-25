@@ -1,0 +1,25 @@
+1.mybaits自动映射生成的 xxxMapper.updateBySelective(Object xxx)可以自动修改不为空的值 为空就没动
+			updateByPrimaryKey(Object xxx)会完全修改  为空的值会设为null
+
+2.接口参数  必需参数 前面加上 @RequestParam ，非必需参数不加
+
+3.svn提交时不能同时修改同一个文件，否则会出现Conflic冲突 ，此时需要把冲突的文件revert,然后再update,
+  最好另外先保存一下自己修改的文件 避免丢失
+
+4.安装ssh客户端 for windows 以便在cmd下可以使用ssh命令 连接到阿里云服务器
+   下载ssh for windows.exe 全部默认安装
+   然后打开cmd
+
+   ssh @root/120.xx.xx.xx
+   
+   再输入yes
+   输入密码  连接成功   输入exit 退出
+  
+  在Eclipse将要上线的项目右击-->Export-->War file-->选择第一个和第三个选项
+
+  再scp war文件 @root/120.xx.xx.xx:/www
+  之后重启服务器  重新 登录ssh 然后 输入 service tomcat restart
+
+
+5.文件上传到阿里云服务器的路径要设置成可配置的  将ImgUrl的地址写在setting.properties文件中 然后利用propertyUtil和propertyContext来获取
+ImgUrl

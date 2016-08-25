@@ -1,0 +1,5 @@
+1. update和add 参数可选上传
+
+2.安装ssh客户端
+
+3.配置properties 并通过 PropertiesUtil来获取  动态配置图片上传路径
