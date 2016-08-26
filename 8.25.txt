@@ -1,0 +1,10 @@
+1.如何将MySql 数据库 映射为mvb关系图:http://blog.sina.com.cn/s/blog_0ee72b370102waef.html
+
+
+2.添加修改 add/update方法将参数设置为可变的
+可将参数 改为 @RequestParam(required=false) 或者去掉 @RequestParam
+
+3.properties在服务器启动时会自动加载   不需要通过PropertiesUtil.setPropertyContext()来设置
+
+
+4.修改阿里云服务器  文件夹权限 640-->644  

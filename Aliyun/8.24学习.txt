@@ -10,7 +10,7 @@
    下载ssh for windows.exe 全部默认安装
    然后打开cmd
 
-   ssh @root/120.xx.xx.xx
+   ssh root@120.xx.xx.xx
    
    再输入yes
    输入密码  连接成功   输入exit 退出
@@ -31,6 +31,10 @@ war: /www
 scp 本地文件 root@120.26.204.82:/xxx(服务器路径)
 html 部署完，nginx服务器重启：service nginx restart
 war 部署完，tomcat重启：service tomcat restart
+
+重装Tomcat服务器后  启动/usr/share/tomcat/bin/shutdown.sh
+
+			/usr/share/tomcat/bin/startup.sh
 
 5.文件上传到阿里云服务器的路径要设置成可配置的  将ImgUrl的地址写在setting.properties文件中 然后利用propertyUtil和propertyContext来获取
 ImgUrl
