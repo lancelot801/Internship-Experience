@@ -17,7 +17,7 @@
   
   在Eclipse将要上线的项目右击-->Export-->War file-->选择第一个和第三个选项
 
-  再scp war文件 @root/120.xx.xx.xx:/www
+  再scp war文件 root@120.xx.xx.xx:/www
   之后重启服务器  重新 登录ssh 然后 输入 service tomcat restart
 
 root@120.26.204.82

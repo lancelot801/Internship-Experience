@@ -1,0 +1,14 @@
+1.public Logger logger = LoggerFactory.getLogger(this.getClass());  
+
+使用指定类初始化日志对象，在日志输出的时候，可以打印出日志信息所在类
+
+
+2.微信中第三方网页授权 
+	a.用户同意授权,获取code
+	b.通过code换取网页授权access_token
+	c.刷新access_token(如果需要)
+	d.拉取用户信息(需scope为snsapi_userInfo)
+
+3.微信服务号开发  只需要一个access_token就可以了 存放在 WebApplicationContext中 设置全局缓存  每隔两小时刷新一次
+
+4.微信公众号调试，利用QQ浏览器 打开微信调试功能 映射出本地项目服务的链接   127.0.0.1:8080或者本地ip+端口
