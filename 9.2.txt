@@ -1,0 +1,23 @@
+1.随机生成订单号 
+DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+
+int rdm = (int) (Math.random() * 100);
+
+oh.setOrderSn(df.format(now) + rdm);
+
+2.微信测试公众号 添加自定义菜单   调用测试接口  把需要的参数一个个获取过来  直接在 微信开发者文档的 接口在线调试中
+设置菜单   测试号能够同步生成
+
+3.微信公众号添加个人信息到数据库 
+
+用户关注或者取消关注  调用WeChatController中的/wget方法 传递  HttpServletRequest  HttpServletResponse参数
+再根据传递的请求 使用MessageKit工具类的 msgHandler方法 对request参数进行处理   先将request转换为msgMap
+
+if (DeduplicateMessageKit.checkDuplicate(msgMap)) {
+			String rel = DeduplicateMessageKit.getRel(msgMap);
+			System.out.println("check Real"+rel);
+			return rel;
+		}
+将传过来的消息转换为字符串  
+
+再获取到这个msgMap的消息类型 MsgType  根据msgType与 WechatFinalValue里面的东西进行比较 再进行相应的操作
