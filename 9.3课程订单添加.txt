@@ -1,0 +1,42 @@
+1.用AuthFilter进行过滤  Filter会在请求调用Servlet之前进行过滤  
+通过Filter 为person设置openid  再通过personService调用getPersonByOpenid获取person信息 最后把person信息放入Session中
+
+2.public JsonResult add(@RequestParam String courseId, String paymentMethod,
+			HttpSession session)  
+   CourseOrderController中写如上方法  通过session获取第一步存储的session对象  再取到里面所需的user_id
+
+   此外myBaits进行多表查询时，最好分几次查，自己写的多表查询语句不易维护   若实在要进行多表查询
+
+	<resultMap type="com.john.hbatis.model.Article" id="articleList">
+   
+		 <id column="a_id" property="id" />
+    
+		<result column="title" property="title" />
+    
+	<result column="content" property="content" />
+    
+    
+	<association property="user" javaType="User">
+   <!-- user属性映射到User类 -->
+        
+    <id column="id" property="id" />
+        
+     <result column="name" property="name" />
+     
+   <result column="address" property="address" />
+   
+    </association>
+</resultMap>
+
+
+   <select id="getArticlesByUserId" parameterType="int" resultMap="articleList">
+   
+      select u.id, u.name, u.age, u.address, a.id a_id, a.title, a.content
+  
+  from article a
+    inner join user u
+    on a.user_id=u.id and u.id=#{id}
+
+</select>
+
+3.订单修改时 添加两个字段  create_by varchar(32)  update_by varchar(32)  用于记录对订单的操作
