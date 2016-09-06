@@ -1,40 +1,40 @@
-1.mybaits×Ô¶¯Ó³ÉäÉú³ÉµÄ xxxMapper.updateBySelective(Object xxx)¿ÉÒÔ×Ô¶¯ĞŞ¸Ä²»Îª¿ÕµÄÖµ Îª¿Õ¾ÍÃ»¶¯
-			updateByPrimaryKey(Object xxx)»áÍêÈ«ĞŞ¸Ä  Îª¿ÕµÄÖµ»áÉèÎªnull
+1.mybaitsè‡ªåŠ¨æ˜ å°„ç”Ÿæˆçš„ xxxMapper.updateBySelective(Object xxx)å¯ä»¥è‡ªåŠ¨ä¿®æ”¹ä¸ä¸ºç©ºçš„å€¼ ä¸ºç©ºå°±æ²¡åŠ¨
+			updateByPrimaryKey(Object xxx)ä¼šå®Œå…¨ä¿®æ”¹  ä¸ºç©ºçš„å€¼ä¼šè®¾ä¸ºnull
 
-2.½Ó¿Ú²ÎÊı  ±ØĞè²ÎÊı Ç°Ãæ¼ÓÉÏ @RequestParam £¬·Ç±ØĞè²ÎÊı²»¼Ó
+2.æ¥å£å‚æ•°  å¿…éœ€å‚æ•° å‰é¢åŠ ä¸Š @RequestParam ï¼Œéå¿…éœ€å‚æ•°ä¸åŠ 
 
-3.svnÌá½»Ê±²»ÄÜÍ¬Ê±ĞŞ¸ÄÍ¬Ò»¸öÎÄ¼ş£¬·ñÔò»á³öÏÖConflic³åÍ» £¬´ËÊ±ĞèÒª°Ñ³åÍ»µÄÎÄ¼şrevert,È»ºóÔÙupdate,
-  ×îºÃÁíÍâÏÈ±£´æÒ»ÏÂ×Ô¼ºĞŞ¸ÄµÄÎÄ¼ş ±ÜÃâ¶ªÊ§
+3.svnæäº¤æ—¶ä¸èƒ½åŒæ—¶ä¿®æ”¹åŒä¸€ä¸ªæ–‡ä»¶ï¼Œå¦åˆ™ä¼šå‡ºç°Conflicå†²çª ï¼Œæ­¤æ—¶éœ€è¦æŠŠå†²çªçš„æ–‡ä»¶revert,ç„¶åå†update,
+  æœ€å¥½å¦å¤–å…ˆä¿å­˜ä¸€ä¸‹è‡ªå·±ä¿®æ”¹çš„æ–‡ä»¶ é¿å…ä¸¢å¤±
 
-4.°²×°ssh¿Í»§¶Ë for windows ÒÔ±ãÔÚcmdÏÂ¿ÉÒÔÊ¹ÓÃsshÃüÁî Á¬½Óµ½°¢ÀïÔÆ·şÎñÆ÷
-   ÏÂÔØssh for windows.exe È«²¿Ä¬ÈÏ°²×°
-   È»ºó´ò¿ªcmd
+4.å®‰è£…sshå®¢æˆ·ç«¯ for windows ä»¥ä¾¿åœ¨cmdä¸‹å¯ä»¥ä½¿ç”¨sshå‘½ä»¤ è¿æ¥åˆ°é˜¿é‡Œäº‘æœåŠ¡å™¨
+   ä¸‹è½½ssh for windows.exe å…¨éƒ¨é»˜è®¤å®‰è£…
+   ç„¶åæ‰“å¼€cmd
 
    ssh root@120.xx.xx.xx
    
-   ÔÙÊäÈëyes
-   ÊäÈëÃÜÂë  Á¬½Ó³É¹¦   ÊäÈëexit ÍË³ö
+   å†è¾“å…¥yes
+   è¾“å…¥å¯†ç   è¿æ¥æˆåŠŸ   è¾“å…¥exit é€€å‡º
   
-  ÔÚEclipse½«ÒªÉÏÏßµÄÏîÄ¿ÓÒ»÷-->Export-->War file-->Ñ¡ÔñµÚÒ»¸öºÍµÚÈı¸öÑ¡Ïî
+  åœ¨Eclipseå°†è¦ä¸Šçº¿çš„é¡¹ç›®å³å‡»-->Export-->War file-->é€‰æ‹©ç¬¬ä¸€ä¸ªå’Œç¬¬ä¸‰ä¸ªé€‰é¡¹
 
-  ÔÙscp warÎÄ¼ş root@120.xx.xx.xx:/www
-  Ö®ºóÖØÆô·şÎñÆ÷  ÖØĞÂ µÇÂ¼ssh È»ºó ÊäÈë service tomcat restart
+  å†scp waræ–‡ä»¶ root@120.xx.xx.xx:/www
+  ä¹‹åé‡å¯æœåŠ¡å™¨  é‡æ–° ç™»å½•ssh ç„¶å è¾“å…¥ service tomcat restart
 
-root@120.26.204.82
-ÃÜÂë GuanduFlyDev01
+root@120.xx.xx.xx
+å¯†ç XXXXXX
 
 html: /alidata/www/ongea
 img: /alidata/www/img
 war: /www
 
-²¿Êğ£º
-scp ±¾µØÎÄ¼ş root@120.26.204.82:/xxx(·şÎñÆ÷Â·¾¶)
-html ²¿ÊğÍê£¬nginx·şÎñÆ÷ÖØÆô£ºservice nginx restart
-war ²¿ÊğÍê£¬tomcatÖØÆô£ºservice tomcat restart
+éƒ¨ç½²ï¼š
+scp æœ¬åœ°æ–‡ä»¶ root@120.26.204.82:/xxx(æœåŠ¡å™¨è·¯å¾„)
+html éƒ¨ç½²å®Œï¼ŒnginxæœåŠ¡å™¨é‡å¯ï¼šservice nginx restart
+war éƒ¨ç½²å®Œï¼Œtomcaté‡å¯ï¼šservice tomcat restart
 
-ÖØ×°Tomcat·şÎñÆ÷ºó  Æô¶¯/usr/share/tomcat/bin/shutdown.sh
+é‡è£…TomcatæœåŠ¡å™¨å  å¯åŠ¨/usr/share/tomcat/bin/shutdown.sh
 
 			/usr/share/tomcat/bin/startup.sh
 
-5.ÎÄ¼şÉÏ´«µ½°¢ÀïÔÆ·şÎñÆ÷µÄÂ·¾¶ÒªÉèÖÃ³É¿ÉÅäÖÃµÄ  ½«ImgUrlµÄµØÖ·Ğ´ÔÚsetting.propertiesÎÄ¼şÖĞ È»ºóÀûÓÃpropertyUtilºÍpropertyContextÀ´»ñÈ¡
+5.æ–‡ä»¶ä¸Šä¼ åˆ°é˜¿é‡Œäº‘æœåŠ¡å™¨çš„è·¯å¾„è¦è®¾ç½®æˆå¯é…ç½®çš„  å°†ImgUrlçš„åœ°å€å†™åœ¨setting.propertiesæ–‡ä»¶ä¸­ ç„¶ååˆ©ç”¨propertyUtilå’ŒpropertyContextæ¥è·å–
 ImgUrl
